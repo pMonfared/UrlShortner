@@ -1,0 +1,5 @@
+{
+    "name":"My First Node App",
+    "db":"mongodb://localhost/NodjsRESTfulAPIs_db",
+    "jwtPrivateKey": "123456789"
+}
