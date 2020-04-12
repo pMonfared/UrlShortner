@@ -1,9 +1,5 @@
 {
-    "name":"My First Node App - Development",
-    "mail":{
-        "host": "dev-mail-server",
-        "password":"MAIL_PASSWORD"
-    },
+    "name":"Url Shorter",
     "db":"NODEJSRESTFULAPI_DB_CONNECTIONSTRING",
     "jwtPrivateKey": "JWT_API_KEY"
 }

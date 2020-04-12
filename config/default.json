@@ -1,5 +1,6 @@
 {
-    "name":"My First Node App",
-    "db":"mongodb://localhost/NodjsRESTfulAPIs_db",
-    "jwtPrivateKey": "123456789"
+    "name":"Url Shorter",
+    "db":"mongodb://localhost/UrlShorter_db",
+    "jwtPrivateKey": "tpZ7AVvkbNznr5cPVHkYDdm3m4JyPTcvfRsFELXpcSKfHnA8k7Nz7GXzfGd7FKP69nNyEpjsPQUJLDJ9gz55gCugkN93cGaB4TajscBb3RqUmLgaJBBE",
+    "shorturlkeyCharacterCount":5
 }
