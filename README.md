@@ -81,6 +81,8 @@ I use [config](https://www.npmjs.com/package/config) to manage some keys:
 }
 ```
 
+### Must fill "jwtPrivateKey" by Environment variables
+
 You can run unit and integration tests with below command:
  ```javascript
 npm test
