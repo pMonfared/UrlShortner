@@ -60,7 +60,7 @@ Or run only
  ```
  
 You can use [Postman](https://www.postman.com/downloads/) to communicate with API endpoints.
-You must import [collection](/UrlShorter.postman_collection.json) and [environment](/UrlShorter Dev.postman_environment.json) files ((there are at the root of the project)) to your postman application.
+You must import [collection](/UrlShorter.postman_collection.json) and [environment](/UrlShorterDev.postman_environment.json) files ((there are at the root of the project)) to your postman application.
 
 ![POSTMAN](/postmanconfig.jpg)
 
@@ -80,6 +80,8 @@ I use [config](https://www.npmjs.com/package/config) to manage some keys:
     "shorturlkeyCharacterCount":5
 }
 ```
+
+### Must fill "jwtPrivateKey" by Environment variables
 
 You can run unit and integration tests with below command:
  ```javascript
