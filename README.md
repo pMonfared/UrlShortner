@@ -28,15 +28,15 @@ dotenv
 artillery
 cross-env
 ```
-#### 1- jest
+#### 1- [jest](https://github.com/facebook/jest)
 * This package use for unit-test
-#### 2- supertest
+#### 2- [supertest](https://github.com/visionmedia/supertest)
 * intergration-test
-#### 3- dotenv
+#### 3- [dotenv](https://github.com/motdotla/dotenv)
 * .env file for our Environment variables as we need
-#### 4- artillery
+#### 4- [artillery](https://artillery.io/)
 * test-stress (benchmark)
-#### 5- cross-env
+#### 5- [cross-env](https://github.com/kentcdodds/cross-env)
 * cross to different NODE_ENV=dev or prod or test
 
 
