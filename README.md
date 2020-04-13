@@ -2,6 +2,11 @@
 
 This is a RESTfulAPI app by Nodejs ([express framework](https://github.com/expressjs/express))
 
+### How to work UrlShortner Service?
+* Anyone can register and login based on [JWT](https://jwt.io/introduction/).
+* After login, you can access to Post/Put/Get/Delete your url.
+* You can see analytic about your urls.
+
 ### What you need to run?
 
 * Install lastest LTS version of [NodeJs](http://nodejs.org) and [MongoDb](https://www.mongodb.com/download-center/community)
@@ -53,6 +58,17 @@ Or run only
  ```javascript
  node index.js
  ```
+ 
+You can use [Postman](https://www.postman.com/downloads/) to communicate with API endpoints.
+You must import [collection](/UrlShorter.postman_collection.json) and [environment](/UrlShorter Dev.postman_environment.json) files ((there are at the root of the project)) to your postman application.
+
+![POSTMAN](/postmanconfig.jpg)
+
+After call Post request to Urls endpoint, you can get shorturlkey and test urlshortner redirection service in your browser:
+```
+http://localhost:5000/{{shorturlkey}}
+```
+
 
 I use [config](https://www.npmjs.com/package/config) to manage some keys:
 
@@ -65,7 +81,7 @@ I use [config](https://www.npmjs.com/package/config) to manage some keys:
 }
 ```
 
-You can run all unit and integration test with below command:
+You can run unit and integration tests with below command:
  ```javascript
 npm test
  ```
