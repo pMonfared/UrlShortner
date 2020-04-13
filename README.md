@@ -1,6 +1,6 @@
 # UrlShortner
 
-This is a RESTfulAPI app by Nodejs by ([express framework](https://github.com/expressjs/express))
+This is a RESTfulAPI app by Nodejs ([express framework](https://github.com/expressjs/express))
 
 ### What you need to run?
 
