@@ -1,2 +1,2 @@
-# UrlShorter
-UrlShorter API by Nodejs
+# UrlShortner
+UrlShortner API by Nodejs
