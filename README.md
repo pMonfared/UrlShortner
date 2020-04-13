@@ -11,14 +11,14 @@ This is a RESTfulAPI app by Nodejs (express framework)
 npm install
 ```
 
-### You need install some packages globally on your os like:
+### You need to install some packages globally on your os like:
 
 nodemon for run-watching mode development
 ```javascript
 npm i -g nodemon 
 ```
 
-because those are tool not a dependency for project
+because those are tools not a dependency for the project
 
 ```javascript
 jest
@@ -33,15 +33,15 @@ cross-env
 #### 2- supertest
 * intergration-test
 #### 3- dotenv
-* .env file for our Enviroment varibales as we need
+* .env file for our Environment variables as we need
 #### 4- artillery
 * test-stress (benchmark)
 #### 5- cross-env
-* cross to diffrent NODE_ENV=dev or prod or test
+* cross to different NODE_ENV=dev or prod or test
 
 
 
-## You can run project 3 way:
+## You can run the project in 3 way:
 
 ```javascript
 npm start
