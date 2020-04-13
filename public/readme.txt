@@ -16,8 +16,7 @@ nodemon index.js
 
 tadaaa!
 
-open browser: localhost:5000  (must see hello :))
-open browser: localhost:5000/api/courses (must see course array list)
+open browser: localhost:5000/api/urls (must see course array list)
 
 You can use Postman to Get,Post,Put,Delete Courses operators
 
