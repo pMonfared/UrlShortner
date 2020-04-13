@@ -10,18 +10,18 @@ const { User, validate } = require('../models/user');
 
 router.get('/profile', auth , async (req,res)=> {
     let user = await User.findById(req.user._id).select('-password');
-    user = new User (_.pick(user,['_id', 'name', 'email']));
+    user = new User (_.pick(user,['_id', 'username', 'email']));
     res.send(user);
 });
 
-router.post('/', async (req,res)=>{
+router.post('/', async (req,res) => {
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
-    let user = await User.findOne({ email: req.body.email });
+    let user = await User.lookup(req.body.email,req.body.username);
     if (user) return res.status(400).send('User already registered.');
 
-    user = new User (_.pick(req.body,['name', 'email', 'password']));
+    user = new User (_.pick(req.body,['username', 'email', 'password']));
 
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);
@@ -30,7 +30,7 @@ router.post('/', async (req,res)=>{
 
     const token = user.generateAuthToken();
 
-    res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']));
+    res.header('x-auth-token', token).send(_.pick(user, ['_id', 'username', 'email']));
 });
 
 module.exports = router;

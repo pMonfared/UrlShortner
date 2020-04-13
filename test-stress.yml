@@ -1,0 +1,30 @@
+config:
+    target: 'http://localhost:5000'
+    phases:
+      - duration: 60
+        arrivalRate: 40
+    defaults:
+      headers:
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101 Firefox/75.0
+        x-auth-token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTkzNzcyNjIzOTQyMzI1NDRlMzRkZTIiLCJpYXQiOjE1ODY3MjM1Mjh9.mqU-WvucNNcvPzfHayIHEhHIf3VSIM_z6irv_330kjU'
+scenarios:
+    - flow:
+      - post:
+         url: "/api/urls"
+         json:
+           url: "http://google.com"
+           shorturlkey: ""
+         headers:
+           Content-Type: "application/json"
+         expect:
+           - statusCode: 200
+           - contentType: json
+         capture:
+           json: "$.shorturlkey"
+           as: "key"
+      - get:
+          url: "/{{ key }}"
+          followRedirect: false
+      - get:
+          url: "/api/analytic/{{ key }}"
+  

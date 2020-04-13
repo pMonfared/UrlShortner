@@ -4,11 +4,12 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 
 const userSchema = new mongoose.Schema({
-    name: { 
+    username: { 
       type: String,
       required: true,
-      maxlength:50,
-      minlength:5,      
+      maxlength:100,
+      minlength:5,
+      unique:true         
     },
     email: { 
         type: String,
@@ -42,11 +43,15 @@ const userSchema = new mongoose.Schema({
     return token;
   }
 
+  userSchema.statics.lookup = function(email, username) {
+    return this.findOne({ $or: [ { email: email }, { username: username } ] });
+  }
+
 const User = mongoose.model('Users', userSchema);
 
 function validateUser(user){
     const schema = {
-        name: Joi.string().min(5).max(50).required(),
+        username: Joi.string().min(5).max(100).required(),
         email: Joi.string().min(5).max(255).required().email(),
         password: Joi.string().min(5).max(255).required(),
     }
@@ -54,5 +59,6 @@ function validateUser(user){
     return Joi.validate(user,schema);
 }
 
+exports.userSchema = userSchema;
 exports.User = User;
 exports.validate = validateUser;

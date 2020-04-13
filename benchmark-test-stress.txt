@@ -1,0 +1,35 @@
+All virtual users finished
+Summary report @ 23:46:47(+0430) 2020-04-12
+  Scenarios launched:  2400
+  Scenarios completed: 2400
+  Requests completed:  7200
+  Mean response/sec: 119.13
+  Response time (msec):
+    min: 2.4
+    max: 52.9
+    median: 3.8
+    p95: 14.3
+    p99: 20.5
+  Scenario counts:
+    0: 2400 (100%)
+  Codes:
+    200: 4800
+    302: 2400
+
+All virtual users finished
+Summary report @ 23:44:55(+0430) 2020-04-12
+  Scenarios launched:  7200
+  Scenarios completed: 7200
+  Requests completed:  21600
+  Mean response/sec: 357.02
+  Response time (msec):
+    min: 2.8
+    max: 1559.3
+    median: 314.4
+    p95: 1239.5
+    p99: 1524.7
+  Scenario counts:
+    0: 7200 (100%)
+  Codes:
+    200: 14400
+    302: 7200

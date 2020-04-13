@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "89d9f620-ba85-487e-bff1-596b87233cd8",
+		"name": "UrlShorter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1c17d101-e1e8-44b8-a941-d452c6b91bfb",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"emailOrUsername\":\"PoMon\",\n  \"password\":\"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/api/auth",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"PoMon\",\n  \"email\":\"poriya.monfared@gmail.com\",\n  \"password\":\"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/api/users",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API}}/api/users/profile",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Urls",
+			"item": [
+				{
+					"name": "Create Url",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-auth-token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"url\":\"http://google.com\",\n\t\"shorturlkey\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/api/urls",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"urls"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Url",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-auth-token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"url\":\"http://yahoo.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/api/urls/5e924fb3f9fc911578447411",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"urls",
+								"5e924fb3f9fc911578447411"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Url",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-auth-token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/api/urls/5e92520c2b550e547ccec1ec",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"urls",
+								"5e92520c2b550e547ccec1ec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Url",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-auth-token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/api/urls/5e924fb3f9fc911578447411",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"urls",
+								"5e924fb3f9fc911578447411"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Urls",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-auth-token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/api/urls",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"urls"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Analytic",
+			"item": [
+				{
+					"name": "Get Url Analytic",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-auth-token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/api/analytic/Trkt5?category=mobile&browser=chrome&timeInterval=today",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"analytic",
+								"Trkt5"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "mobile"
+								},
+								{
+									"key": "browser",
+									"value": "chrome"
+								},
+								{
+									"key": "timeInterval",
+									"value": "today",
+									"description": "today,yesterday,lastweek,lastmonth"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
