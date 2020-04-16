@@ -52,7 +52,7 @@ cross-env
 ```javascript
 npm run start
 npm run start-dev
-npm run start-prod
+docker-compose up
 ```
   
 Or run only
