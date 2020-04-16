@@ -1,7 +1,8 @@
 FROM node:12.16.1
-WORKDIR /app
-COPY package.json /app
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY package.json /usr/src/app/
 RUN yarn install
-COPY . /app
+COPY . /usr/src/app
+EXPOSE 3000
 CMD node index.js
-EXPOSE 8081
