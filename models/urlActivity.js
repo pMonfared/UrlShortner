@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const moment = require('moment');
 
 
@@ -40,14 +40,14 @@ const urlActivitySchema = new mongoose.Schema({
 const UrlActivity = mongoose.model('urlActivities', urlActivitySchema);
 
 function validateUrlActivity(urlActivity){
-    const schema = {
+    const schema = Joi.object({
         category: Joi.string().required(),
         browser: Joi.string().min(3).max(20).required(),
         ip: Joi.string().min(3).max(50).required(),
         url: Joi.objectId().required()
-    }
+    })
 
-    return Joi.validate(urlActivity,schema);
+    return schema.validate(urlActivity);
 }
 
 exports.UrlActivity = UrlActivity;

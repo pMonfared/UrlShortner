@@ -1,6 +1,6 @@
 {
     "name":"Url Shorter",
-    "db":"mongodb://localhost/UrlShorter_db",
+    "db":"mongodb://localhost:27017/UrlShorter_db",
     "jwtPrivateKey": "tpZ7AVvkbNznr5cPVHkYDdm3m4JyPTcvfRsFELXpcSKfHnA8k7Nz7GXzfGd7FKP69nNyEpjsPQUJLDJ9gz55gCugkN93cGaB4TajscBb3RqUmLgaJBBE",
     "shorturlkeyCharacterCount":5
 }

@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+Dockerfile
+.dockerignore
+logfile.log
+coverage
+.env
+UrlShorter.postman_collection.json
+UrlShorterDev.postman_environment.json
+postmanconfig.jpg
+benchmark-test-stress.txt
