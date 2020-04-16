@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 const bcrypt = require('bcrypt');
 const express = require('express');
@@ -29,12 +29,12 @@ function generateAuthToken() {
 
 
 function validate(req){
-    const schema = {
+    const schema = Joi.object({
         emailOrUsername: Joi.string().min(5).max(255).required(),
         password: Joi.string().min(5).max(255).required(),
-    }
+    })
 
-    return Joi.validate(req,schema);
+    return schema.validate(req);
 }
 
 module.exports = router;

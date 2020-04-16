@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const config = require('config');
 const ShortUniqueId = require('short-unique-id').default;
 
@@ -30,13 +30,13 @@ const urlSchema = new mongoose.Schema({
 const Url = mongoose.model('Urls', urlSchema);
 
 function validateUrl(url){
-    const schema = {
+    const schema = Joi.object({
         url: Joi.string().min(5).max(100).required(),
         shorturlkey: Joi.string().min(5).max(10),
         user: Joi.objectId().required(),
-    }
+    });
 
-    return Joi.validate(url,schema);
+    return schema.validate(url);
 }
 
 exports.Url = Url;

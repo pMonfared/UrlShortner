@@ -4,7 +4,7 @@ const auth = require('../middleware/authorization');
 const { Url } = require('../models/url')
 const { UrlActivity } = require('../models/urlActivity')
 const mongoose = require('mongoose');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const moment = require('moment');
 
 
@@ -119,12 +119,12 @@ function generateUrlActivityQuery({ timeInterval, urlId, category, browser }){
 }
 
 function validateGet(url){
-    const schema = {
+    const schema = Joi.object({
         category: Joi.string().empty(""),//mobile,desktop
         browser: Joi.string().empty(""),//chrome,firefox
         timeInterval: Joi.string().empty(""),//today,yesterday,week,month
-    }
-    return Joi.validate(url,schema);
+    });
+    return schema.validate(url);
 }
 
 
