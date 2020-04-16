@@ -6,7 +6,7 @@
     "test": "cross-env NODE_ENV=test jest --setupFiles dotenv/config --watchAll --runInBand --detectOpenHandles --verbose --coverage",
     "test-stress": "artillery run test-stress.yml",
     "start-dev": "cross-env NODE_ENV=development nodemon -r dotenv/config index.js",
-    "start-prod": "cross-env NODE_ENV=production node -r dotenv/config index.js"
+    "start-prod": "NODE_ENV=production node index.js"
   },
   "engines": {
     "node": "12.16.1"

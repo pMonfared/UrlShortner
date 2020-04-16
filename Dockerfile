@@ -5,4 +5,4 @@ COPY package.json /usr/src/app/
 RUN yarn install
 COPY . /usr/src/app
 EXPOSE 3000
-CMD node index.js
+CMD npm run start-prod

@@ -80,10 +80,10 @@ router.delete('/:id', [auth, validateObjectId] , async (req,res)=>{
 })
 
 function validatePostUrl(url){
-    const schema = {
+    const schema = Joi.object({
         url: Joi.string().min(5).max(255).required(),
         shorturlkey: Joi.string().empty("").min(5).max(10),
-    }
+    });
 
     return schema.validate(url);
 }

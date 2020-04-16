@@ -1,4 +1,5 @@
-# UrlShortner
+# UrlShortner 
+## (Dockerized)
 
 This is a RESTfulAPI app by Nodejs ([express framework](https://github.com/expressjs/express))
 
@@ -49,9 +50,9 @@ cross-env
 ## You can run the project in 3 way:
 
 ```javascript
-npm start
-npm start-dev
-npm start-prod
+npm run start
+npm run start-dev
+npm run start-prod
 ```
   
 Or run only
@@ -70,7 +71,7 @@ http://localhost:5000/{{shorturlkey}}
 ```
 
 
-I use [config](https://www.npmjs.com/package/config) to manage some keys:
+I used [config](https://www.npmjs.com/package/config) to manage some keys:
 
 ```
 {
@@ -81,16 +82,24 @@ I use [config](https://www.npmjs.com/package/config) to manage some keys:
 }
 ```
 
+But I used Docker in Production mode and MongoDB Connection String must be like this:
+
+```
+"mongodb://mongo:27017/UrlShorter_db"
+```
+> ["mongo"](/docker-compose.yml) is the name of MongoDB Container in docker-compose services config
+
+
 ### Must fill "jwtPrivateKey" by Environment variables
 
 You can run unit and integration tests with below command:
  ```javascript
-npm test
+npm run test
  ```
 
 You can run test-stress and get the report with below command:
  ```javascript
-npm test-stress
+npm run test-stress
  ```
 
  It's the test-stress report:
